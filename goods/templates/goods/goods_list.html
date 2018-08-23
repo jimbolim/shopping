@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block static %}
+<link rel="stylesheet" href="{% static 'goods/goods_list.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container">
+<div class="row">
+{% for goods in goodss %}
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <div class="thumbnail">
+      <a href="{% url 'goods_detail' goods.pk %}"><img src="{{ goods.img_url.url }}" height="200" width="200"></a>
+        <div class="caption">
+            <h3>production name：{{ goods.name }}</h3>
+            <P>production type：{{ goods.goods_type }}</P>
+        </div>
+    </div>
+    </div>
+{% endfor %}
+</div>
+</div>
+{% endblock %}

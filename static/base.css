@@ -1,0 +1,17 @@
+    html,body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    #container {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    }
+    footer {
+    position: relative;
+    margin-top: -60px;/*等于footer的高度*/
+    height: 60px;
+    clear:both;
+    background-color: #9d9d9d;
+    }

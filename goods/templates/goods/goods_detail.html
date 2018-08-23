@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block static %}
+<link rel="stylesheet" href="{% static 'goods/goods.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container goods-detail">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9">
+                <a href="{{ goods.img_url.url }}"><img src="{{ goods.img_url.url }}" width="80%" height="80%"></a>
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-3">
+                <h1>goods name：{{ goods.name }}</h1>
+                <p>goods type：{{ goods.goods_type }}</p>
+            </div>
+        </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">production's information</div>
+        <div class="panel-body">
+             {{ goods.content }}
+        </div>
+    </div>
+</div>
+{% endblock %}
