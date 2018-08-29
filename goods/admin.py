@@ -9,4 +9,4 @@ class GoodsTypeAdmin(admin.ModelAdmin):
 
 @admin.register(Goods)
 class GoodsAdmin(admin.ModelAdmin):
-    list_display = ('name', 'goods_type', 'img_url')
+    list_display = ('name', 'goods_type', 'img_url', 'style_number', 'item_name', 'Fabric_content', 'size', 'weight', 'other_details')
