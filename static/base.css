@@ -1,7 +1,16 @@
 body {
-    padding-top: 55px;
+    padding-top: 62px;
     padding-bottom: 70px;
 }
+
+.navbar-fixed-top{
+    height: 60px;
+}
+
+.header-title{
+    font-size: 250%;
+}
+
 .navbar-text {
     font-size: x-large;
     /*position: relative;相对定位*/

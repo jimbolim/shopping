@@ -5,16 +5,11 @@ div.carousel-inner img{
 
 div.thumbnail {
     width: 256px;
-    height: 256px;
+    height: 300px;
 }
 
-div.panel-default{
-    margin-top: 50%;
-    width: 200px;
-}
-
-div.panel-heading {
-    font-size: xx-large;
+.goods-name{
+    text-align: center;
 }
 
 h1{

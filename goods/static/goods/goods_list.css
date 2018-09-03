@@ -1,8 +1,8 @@
-div.container {
-    margin-top: 60px;
+div.thumbnail {
+    width: 256px;
+    height: 300px;
 }
 
-div.thumbnail {
-    width: 272px;
-    height: 272px;
+h3{
+    text-align: center;
 }

@@ -6,14 +6,7 @@
 {% block content %}
 <div class="container">
 <div class="row">
-    <div class="hidden-xs col-sm-2 col-md-2 col-lg-pull-1">
-    <h1>CATEGORIES</h1>
-    {% for goods_type_detail_name in goods_detail_type %}
-            <li><a href="{% url 'goods_list_detail' goods_type_detail_name.pk %}"><button type="button" class="btn btn-lg btn-default">{{ goods_type_detail_name }}</button></a></li>
-    {% endfor %}
-        </div>
-        <div class="col-xs-12 col-sm-offset-0 col-md-10 col-lg-10">
-{% for goods,img in goodss.items %}
+{% for goods,img in detail_goodss.items %}
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
     <div class="thumbnail">
       <a href="{% url 'goods_detail' goods.pk %}"><img src="{{ img.url }}" height="220" width="220"></a>
@@ -23,7 +16,6 @@
     </div>
     </div>
 {% endfor %}
-</div>
 </div>
 </div>
 {% endblock %}

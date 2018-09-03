@@ -8,21 +8,23 @@
 <div class="container goods-detail">
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9">
-                <a href="{{ goods.img_url.url }}"><img src="{{ goods.img_url.url }}" width="400" height="400"></a>
+                {% for img in imgs %}
+                    <a href="{{ img.img.url }}"><img src="{{ img.img.url }}" width="400" height="400"></a>
+                {% endfor %}
             </div>
             <div class="col-sm-4 col-md-4 col-lg-3">
                 <h1>{{ goods.name }}</h1>
                 <p>category：{{ goods.goods_type }}</p>
+                <h1>Product Description</h1>
+                    <li>style number : {{ goods.style_number }}</li>
+                    <li>item name : {{ goods.item_name }}</li>
+                    <li>Fabric content : {{ goods.Fabric_content }}</li>
+                    <li>size : {{ goods.size }}</li>
+                    <li>weight : {{ goods.weight }}</li>
+                    <li>other_details : {{ goods.other_details }}</li>
             </div>
         </div>
 </div>
-<h1>Product Description</h1>
-    <li>style number : {{ goods.style_number }}</li>
-    <li>item name : {{ goods.item_name }}</li>
-    <li>Fabric content : {{ goods.Fabric_content }}</li>
-    <li>size : {{ goods.size }}</li>
-    <li>weight : {{ goods.weight }}</li>
-    <li>other_details : {{ goods.other_details }}</li>
 {% endblock %}
 
 {% block script_extends %}
