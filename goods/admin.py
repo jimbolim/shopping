@@ -17,7 +17,7 @@ class ImgsInline(admin.TabularInline):
 @admin.register(Goods)
 class GoodsAdmin(admin.ModelAdmin):
     inlines = [ImgsInline]
-    list_display = ('name', 'goods_type',  'style_number', 'item_name', 'Fabric_content', 'size', 'weight', 'other_details')
+    list_display = ('id', 'name', 'goods_type',  'style_number', 'item_name', 'Fabric_content', 'size', 'weight', 'other_details')
 
 
 @admin.register(Imgs)

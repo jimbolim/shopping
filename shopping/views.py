@@ -8,7 +8,10 @@ def home(request):
     for goods in goodss:
         goods_names.append(goods)
         img_urls = goods.imgs_set.all()#可以使用related_name
-        imgs.append(img_urls[0].img)
+        try:
+            imgs.append(img_urls[0].img)
+        except:
+            imgs.append('')
 
     goods_types = GoodsType.objects.all()
     goodstypes = []
