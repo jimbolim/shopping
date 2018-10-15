@@ -1,8 +1,15 @@
 div.thumbnail {
-    width: 256px;
-    height: 300px;
+    width: 300px;
+    height: 400px;
 }
 
 h3{
     text-align: center;
+}
+
+div.paginator {
+    position: relative;
+    top: 100px;
+    text-align: center;
+    padding-bottom: 70px;
 }

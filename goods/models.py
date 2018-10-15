@@ -14,7 +14,7 @@ class GoodsType(models.Model):
         return (self.id,self.img)
 '''
 class GoodsType_detail(models.Model):
-    detail_name = models.CharField(max_length=30)
+    detail_name = models.CharField(max_length=50)
     GoodsType = models.ForeignKey(GoodsType,on_delete=models.CASCADE)
 
     def __str__(self):

@@ -2,6 +2,7 @@
 {% load staticfiles %}
 {% block static %}
 <link rel="stylesheet" href="{% static 'home.css' %}">
+<link type="text/css" rel="stylesheet" href="{% static 'theme.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -34,21 +35,39 @@
     <div class="container">
         <div class="row">
             <div class="hidden-xs col-sm-2 col-md-2 col-lg-pull-1">
-                <h1>CATEGORIES</h1>
-                {% for goods_type,goods_type_detail_names in goods_detail_type.items %}
-                <li style="list-style-type:none;"><a href="{% url 'goods_list' goods_type.pk %}"><button type="button" class="btn btn-lg btn-default">{{ goods_type.type_name }}</button></a></li>
-                    {% for goods_type_detail_name in goods_type_detail_names %}
-                    <li><a href="{% url 'goods_list_detail' goods_type_detail_name.pk %}"><button type="button" class="btn btn-sm btn-default">{{ goods_type_detail_name.detail_name }}</button></a></li>
-                    {% endfor %}
-                {% endfor %}
+                
+                <div class="content_left">
+                    <div class="title"><span>CATEGORIES</span></div>
+                        <div class="left_nav">  
+                            <ul>
+                            {% for goods_type,goods_type_detail_names in goods_detail_type.items %}
+                            <li>
+                            <div class="t"><i></i><a href="{% url 'goods_list' goods_type.pk %}">{{ goods_type.type_name }}</a></div>
+                              <div class="txt">
+                              {% for goods_type_detail_name in goods_type_detail_names %}
+                              <p><a href="{% url 'goods_list' goods_type_detail_name.pk %}">
+                              {{ goods_type_detail_name.detail_name }}</a></p>
+                              {% endfor %}
+                              </div>
+                            </li>
+                            {% endfor %}
+                            </ul> 
+                          <div class="more"><span>pull</span></div>
+                      </div>
+                  </div>
+
+
             </div>
             <div class="col-xs-12 col-sm-offset-0 col-md-10 col-lg-10">
+
+
+
                 <h1>TOP 30 ITEMS</h1>
                 <div class="row">
                     {% for goods,img in goodss.items %}
                         <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">
                         <div class="thumbnail">
-                          <a href="{% url 'goods_detail' goods.pk %}"><img src="{{ img.url }}" alt="暂无图片" height="220" width="220"></a>
+                          <a href="{% url 'goods_detail' goods.pk %}"><img src="{{ img.url }}" alt="no picture" style="max-height: 255px"></a>
                             <div class="caption">
                                 <a href="{% url 'goods_detail' goods.pk %}"><h3 class="goods-name">{{ goods.name }}</h3></a>
                             </div>
@@ -56,7 +75,16 @@
                         </div>
                     {% endfor %}
                 </div>
+
+
+
+
             </div>
         </div>
 </div>
+{% endblock %}
+
+{% block script_extends %}
+
+<script charset="utf-8" type="text/javascript" src="{% static 'theme.js' %}"></script>
 {% endblock %}
