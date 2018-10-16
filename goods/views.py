@@ -4,8 +4,9 @@ from django.core.paginator import Paginator
 from .models import Goods,Imgs,GoodsType_detail
 
 EACH_PAGE_GOODS_NUMBER = 21
-def goods_list(request,goods_type_pk):
-    goodss = Goods.objects.filter(goods_type=goods_type_pk)
+
+
+def get_goods_list(request, goodss):
     paginator = Paginator(goodss, EACH_PAGE_GOODS_NUMBER)
     page_num = request.GET.get('page', 1) # 获取url的页面参数（GET请求）
     page_of_goods = paginator.get_page(page_num)
@@ -38,6 +39,17 @@ def goods_list(request,goods_type_pk):
     context['page_of_goods'] = page_of_goods
     context['page_range'] = page_range
     #context['goods_detail_type'] = GoodsType_detail.objects.filter(GoodsType_id=goods_type_pk)
+    return context
+
+def goods_list(request,goods_type_pk):
+    goodss = Goods.objects.filter(goods_type=goods_type_pk)
+    context = get_goods_list(request,goodss)
+    return render(request, 'goods/goods_list.html', context)
+
+
+def goods_list_detail(request,goods_type_detail_pk):
+    goodss = Goods.objects.filter(goods_type_detail=goods_type_detail_pk)
+    context = get_goods_list(request,goodss)
     return render(request, 'goods/goods_list.html', context)
 
 

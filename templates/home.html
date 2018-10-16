@@ -45,7 +45,7 @@
                             <div class="t"><i></i><a href="{% url 'goods_list' goods_type.pk %}">{{ goods_type.type_name }}</a></div>
                               <div class="txt">
                               {% for goods_type_detail_name in goods_type_detail_names %}
-                              <p><a href="{% url 'goods_list' goods_type_detail_name.pk %}">
+                              <p><a href="{% url 'goods_list_detail' goods_type_detail_name.pk %}">
                               {{ goods_type_detail_name.detail_name }}</a></p>
                               {% endfor %}
                               </div>
