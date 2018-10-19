@@ -2,8 +2,41 @@
 {% load staticfiles %}
 {% block static %}
 <link rel="stylesheet" href="{% static 'goods/goods_list.css' %}">
+<link type="text/css" rel="stylesheet" href="{% static 'theme.css' %}">
 {% endblock %}
+
 {% block content %}
+<div class="container">
+        <div class="row">
+            <div class="hidden-xs col-sm-2 col-md-2 col-lg-pull-1">
+
+<h3><span class="label label-primary">{{ goods_type }}</span></h3>                
+
+
+<div class="content_left">
+<div class="title"><span>CATEGORIES</span></div>
+    <div class="left_nav">  
+        <ul>
+        {% for goods_type,goods_type_detail_names in goods_detail_type.items %}
+        <li>
+        <div class="t"><i></i><a href="{% url 'goods_list' goods_type.pk %}">{{ goods_type.type_name }}</a></div>
+          <div class="txt">
+          {% for goods_type_detail_name in goods_type_detail_names %}
+          <p><a href="{% url 'goods_list_detail' goods_type_detail_name.pk %}">
+          {{ goods_type_detail_name.detail_name }}</a></p>
+          {% endfor %}
+          </div>
+        </li>
+        {% endfor %}
+        </ul> 
+      <div class="more"><span>pull</span></div>
+  </div>
+</div>
+
+ </div>
+<div class="col-xs-12 col-sm-offset-0 col-md-10 col-lg-10">
+
+
 <div class="container">
 <div class="row">
 {% for goods,img in goodss.items %}
@@ -20,6 +53,11 @@
 <h1>nothing in here now</h1>
 {% endfor %}
 </div>
+</div>
+
+
+           </div>
+        </div>
 </div>
 
 <div class="paginator">
@@ -62,4 +100,8 @@
         now in page   {{ page_of_goods.number }}， have  {{ page_of_goods.paginator.num_pages }}  page
     </p>
 </div>
+{% endblock %}
+{% block script_extends %}
+
+<script charset="utf-8" type="text/javascript" src="{% static 'theme.js' %}"></script>
 {% endblock %}

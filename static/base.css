@@ -8,10 +8,11 @@ body {
 }
 
 .header-title{
-    font-size: 250%;
+    font-size: 150%;
 }
 
 .navbar-text {
     font-size: x-large;
     /*position: relative;相对定位*/
 }
+

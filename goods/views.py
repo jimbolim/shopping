@@ -1,7 +1,7 @@
 from django.shortcuts import render,get_object_or_404
 from django.core.paginator import Paginator
 
-from .models import Goods,Imgs,GoodsType_detail
+from .models import Goods,Imgs,GoodsType_detail,GoodsType
 
 EACH_PAGE_GOODS_NUMBER = 21
 
@@ -34,7 +34,17 @@ def get_goods_list(request, goodss):
             imgs.append(img_urls[0].img)
         except:
             imgs.append('')
+
+    goods_types = GoodsType.objects.all()
+    goodstypes = []
+    goods_detail_types = []
+    for goodstype in goods_types:
+        goodstypes.append(goodstype)
+        goods_detail_type = goodstype.goodstype_detail_set.all()
+        goods_detail_types.append(goods_detail_type)
+
     context = {}
+    context['goods_detail_type'] = dict(zip(goodstypes,goods_detail_types))
     context['goodss'] = dict(zip(goods_names,imgs))
     context['page_of_goods'] = page_of_goods
     context['page_range'] = page_range
@@ -43,13 +53,17 @@ def get_goods_list(request, goodss):
 
 def goods_list(request,goods_type_pk):
     goodss = Goods.objects.filter(goods_type=goods_type_pk)
+    goods_type = GoodsType.objects.filter(id=goods_type_pk)
     context = get_goods_list(request,goodss)
+    context['goods_type'] = goods_type[0].type_name
     return render(request, 'goods/goods_list.html', context)
 
 
 def goods_list_detail(request,goods_type_detail_pk):
     goodss = Goods.objects.filter(goods_type_detail=goods_type_detail_pk)
+    goods_type = GoodsType_detail.objects.filter(id=goods_type_detail_pk)
     context = get_goods_list(request,goodss)
+    context['goods_type'] = goods_type[0].detail_name
     return render(request, 'goods/goods_list.html', context)
 
 
