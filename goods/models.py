@@ -32,8 +32,8 @@ class Goods(models.Model):
     size = models.CharField(max_length=50,null=True, blank=True)
     weight = models.CharField(max_length=50,null=True, blank=True)
     other_details = models.TextField(null=True, blank=True)
-    retail_price = models.CharField(null=True, blank=True)
-    trade_price = models.CharField(null=True, blank=True)
+    retail_price = models.CharField(max_length=50,null=True, blank=True)
+    trade_price = models.CharField(max_length=50,null=True, blank=True)
     def __str__(self):
         return "<Goods: %s>" % self.name
 '''
