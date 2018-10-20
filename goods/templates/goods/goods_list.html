@@ -46,6 +46,7 @@
         <div class="caption">
             <a href="{% url 'goods_detail' goods.pk %}"><h3>{{ goods.name }}</h3></a>
             <p style="text-align: center;">{{ goods.item_name }}</p>
+            <p style="text-align: center;">${{ goods.trade_price }}USD (RRP: ${{ goods.retail_price }} USD)</p>
         </div>
     </div>
     </div>

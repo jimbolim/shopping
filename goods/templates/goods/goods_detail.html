@@ -16,12 +16,21 @@
                 <h1>{{ goods.name }}</h1>
                 <p>category：{{ goods.goods_type }}</p>
                 <h1>Product Description</h1>
+                    <li>Wholesale Price: ${{ goods.trade_price }}USD(RRP: ${{ goods.retail_price }}USD)</li>
+                    
                     <li>style number : {{ goods.style_number }}</li>
+                    
                     <li>item name : {{ goods.item_name }}</li>
+                    
                     <li>Fabric content : {{ goods.Fabric_content }}</li>
+                    
                     <li>size : {{ goods.size }}</li>
+                    
                     <li>weight : {{ goods.weight }}</li>
-                    <li>other_details : {{ goods.other_details }}</li>
+                    
+                    {% if goods.other_details %}
+                        <li>other_details : {{ goods.other_details }}</li>
+                    {% endif %}
             </div>
         </div>
 </div>
